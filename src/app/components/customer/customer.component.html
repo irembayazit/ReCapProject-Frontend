@@ -1,19 +1,35 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-<thead>
-    <tr>
-    <th>Customer Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Company Name</th>
-    </tr>
-</thead>
-<tr *ngFor="let customer of customers">
-    <td> {{customer.customerId}} </td>
-    <td> {{customer.firstName}} </td>
-    <td> {{customer.lastName}} </td>
-    <td> {{customer.companyName}} </td>
-</tr>
-</table>
+<br><br>
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Customers
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <table *ngIf="dataLoaded==true" class="table">
+                <thead>
+                    <tr>
+                    <th>Customer Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Company Name</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let customer of customers">
+                    <td> {{customer.customerId}} </td>
+                    <td> {{customer.firstName}} </td>
+                    <td> {{customer.lastName}} </td>
+                    <td> {{customer.companyName}} </td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+

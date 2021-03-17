@@ -1,0 +1,27 @@
+<br>
+<div class="card mb-3 carousel slide" data-bs-ride="carousel" style="max-width:800px; padding:5px;"  id="carouselExampleIndicators">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <button *ngFor="let image of carImages;let i = index" type="button" data-bs-target="#carouselExampleIndicators" attr.data-bs-slide-to="{{i}}" [class]="getButtonClass(image)" aria-current="true" aria-label="Slide 1"></button>
+      <br>
+      <div class="carousel-inner">
+        <div  *ngFor="let carImage of carImages" [class]="getCurrentImageClass(carImage)" class="col-md-4">
+          <img src="{{apiUrl + carImage.imagePath}}" class="col-md-auto w-90" width="400" height="350"  alt="Image">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <ul class="list-group" *ngFor="let car of cars">
+          <li class="list-group-item"><h5>Car Details</h5> </li>
+          <li class="list-group-item">Car Id : {{ car.carId  }}</li>
+          <li class="list-group-item">Brand : {{ car.brandName }}</li>
+          <li class="list-group-item">Color : {{ car.colorName }}</li>
+          <li class="list-group-item">Model Year : {{ car.modelYear }}</li>
+          <li class="list-group-item">Daily Price : {{ car.dailyPrice }} ₺ </li>
+          <li class="list-group-item">Description : {{ car.description }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,23 +1,28 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Marka</th>
-      <th>Renk</th>
-      <th>Model</th>
-      <th>Fiyat</th>
-      <th>Açıklama</th>
+<br>
+<div style="border:1px darkblue solid;  padding:10px; margin:5px; height:500px;">
+  <b style="font-size:xx-large; color:darkblue;">Cars</b>
+    <hr>
+  <table *ngIf="dataLoaded==true" class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tr routerLink="/car/car-detail/{{car.carId}}" *ngFor="let car of cars">
+      <td>{{ car.carId }}</td>
+      <td>{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.description }}</td>
     </tr>
-  </thead>
-  <tr *ngFor="let car of cars">
-    <td>{{ car.id }}</td>
-    <td>{{ car.brandName }}</td>
-    <td>{{ car.colorName }}</td>
-    <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
-    <td>{{ car.description }}</td>
-  </tr>
-</table>
+  </table>
+</div>

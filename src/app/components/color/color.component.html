@@ -1,15 +1,10 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-<table *ngIf="dataLoaded==true" class="table">
-<thead>
-    <tr>
-    <th>ColorId</th>
-    <th>Name</th>
-    </tr>
-</thead>
-<tr *ngFor="let color of colors">
-    <td> {{color.id}} </td>
-    <td> {{color.name}} </td>
-</tr>
-</table>
+<br><br><br><br><br>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark">Colors</li>
+  <li (click)="setCurrentColor(color)" 
+    routerLink = "/car/color/{{color.colorId}}"
+    *ngFor="let color of colors" 
+    [class] = "getCurrentColorClass(color)">
+    {{color.name}} 
+  </li>
+</ul>
