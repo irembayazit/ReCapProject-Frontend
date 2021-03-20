@@ -57,4 +57,8 @@ export class CarDetailComponent implements OnInit {
     }
   }
 
+  addToCart(car:Car){
+    console.log(car.brandName);
+  }
+
 }

@@ -11,6 +11,8 @@ export class BrandComponent implements OnInit {
 
   brands:Brand[] = [];
   currentBrand:Brand;
+  filterTextBrand="";
+  brandOption:number;
 
   constructor(private brandService:BrandService) { }
 
@@ -35,4 +37,19 @@ export class BrandComponent implements OnInit {
       return "list-group-item list-group-item-action"
     }
   }
+
+  // brandId:number;
+  // getBrandId(brand:Brand){
+  //   this.brandId = brand.brandId;
+  //   console.log(this.brandId);
+  //   return this.brandId;
+  // }
+
+  getSelectedBrand(brandId: Number) {
+    if (this.brandOption == brandId)
+      return true;
+    else
+      return false;
+  }
+
 }

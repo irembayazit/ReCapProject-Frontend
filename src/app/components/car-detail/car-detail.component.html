@@ -1,4 +1,3 @@
-<br>
 <div class="card mb-3 carousel slide" data-bs-ride="carousel" style="max-width:800px; padding:5px;"  id="carouselExampleIndicators">
   <div class="row g-0">
     <div class="col-md-8">
@@ -12,7 +11,7 @@
     </div>
     <div class="col-md-4">
       <div class="card-body">
-        <ul class="list-group" *ngFor="let car of cars">
+        <ul class="list-group" routerLink="/car/car-rental-page/{{car.carId}}" *ngFor="let car of cars">
           <li class="list-group-item"><h5>Car Details</h5> </li>
           <li class="list-group-item">Car Id : {{ car.carId  }}</li>
           <li class="list-group-item">Brand : {{ car.brandName }}</li>
@@ -20,6 +19,10 @@
           <li class="list-group-item">Model Year : {{ car.modelYear }}</li>
           <li class="list-group-item">Daily Price : {{ car.dailyPrice }} ₺ </li>
           <li class="list-group-item">Description : {{ car.description }}</li>
+          <br>
+          <button (click)="addToCart(car)" 
+            type="button" class="btn btn-success">Aracı kirala
+          </button>
         </ul>
       </div>
     </div>

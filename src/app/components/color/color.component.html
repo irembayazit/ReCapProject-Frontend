@@ -1,10 +1,22 @@
-<br><br><br><br><br>
-<ul class="list-group">
-  <li class="list-group-item list-group-item-dark">Colors</li>
-  <li (click)="setCurrentColor(color)" 
-    routerLink = "/car/color/{{color.colorId}}"
-    *ngFor="let color of colors" 
-    [class] = "getCurrentColorClass(color)">
-    {{color.name}} 
-  </li>
-</ul>
+<br>
+
+<div class="mb-3">
+  <label for="filterTextColor" class="form-label">Renkler</label>
+  <input type="text" [(ngModel)]="filterTextColor" class="form-control" id="filterTextColor" placeholder="renk giriniz">
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <select [(ngModel)]="colorOption" class="form-select" aria-label="Default select example">
+      <option [value]="color.colorId" selected="{{getSelectedColor(color.colorId)}}"
+        *ngFor="let color of colors | filterColorPipe:filterTextColor"> {{color.name}} </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <button routerLink = "/car/color/{{colorOption}}" type="button" class="btn btn-success">Filtrele</button>
+  </div>
+</div>
+
+
+
+ 

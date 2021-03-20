@@ -1,0 +1,17 @@
+<div class="card text-dark bg-light mb-3" style="max-width: 50rem; height:400px;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <div>
+        <label for="kiralamaTarihi" style="width:125px;" >Kiralanma tarihi : </label>
+        <input type="date" id="kiralamaTarihi" class="form-control" [(ngModel)]="startDate">
+        <div class="invalid-feedback">Bu tarihte arac kiralanmış</div>
+      </div>
+      <br>
+      <p>
+        <label for="iadeTarihi" style="width:100px;">Teslim tarihi : </label>
+        <input type="date" id="iadeTarihi" class="form-control" [(ngModel)]="endDate">
+      </p>
+    </div>
+  </div>
+
+    

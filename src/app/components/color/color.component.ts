@@ -11,6 +11,9 @@ export class ColorComponent implements OnInit {
 
   colors:Color[] = [];
   currentColor:Color;
+  uzunluk:number;
+  filterTextColor="";
+  colorOption:number;
 
   constructor(private colorService:ColorService) { }
 
@@ -21,6 +24,7 @@ export class ColorComponent implements OnInit {
   getColors(){
     this.colorService.getColors().subscribe(response=>{
       this.colors = response.data;
+      this.uzunluk = this.colors.length;
     })
   }
 
@@ -36,4 +40,11 @@ export class ColorComponent implements OnInit {
     }
   }
   
+  getSelectedColor(colorId: Number) {
+    if (this.colorOption == colorId)
+      return true;
+    else
+      return false;
+  }
+
 }
