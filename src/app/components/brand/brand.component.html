@@ -1,4 +1,3 @@
-
 <div class="list-group-item list-group-item-action list-group-item-primary" routerLink="/car">All Cars</div>
 <br>
 
@@ -8,13 +7,16 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7">
     <select [(ngModel)]="brandOption"  class="form-select" aria-label="Default select example">
       <option  [value]="brand.brandId" selected="{{getSelectedBrand(brand.brandId)}}"
         *ngFor="let brand of brands | filterBrandPipe:filterTextBrand"> {{brand.name}}  </option>
     </select>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <a  routerLink = "/car/brand/{{brandOption}}" type="button" class="btn btn-success">Filtrele</a>
   </div>
-</div>
+  <div class="col-md-2">
+    <a  routerLink = "/brand/getall"  (click)="Brands()" type="button" class="btn btn-primary">All</a>
+  </div> 
+</div>   

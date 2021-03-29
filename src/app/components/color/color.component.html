@@ -6,14 +6,17 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7">
     <select [(ngModel)]="colorOption" class="form-select" aria-label="Default select example">
       <option [value]="color.colorId" selected="{{getSelectedColor(color.colorId)}}"
         *ngFor="let color of colors | filterColorPipe:filterTextColor"> {{color.name}} </option>
     </select>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <button routerLink = "/car/color/{{colorOption}}" type="button" class="btn btn-success">Filtrele</button>
+  </div>
+  <div class="col-md-2">
+    <a  routerLink = "/color/getall" type="button" class="btn btn-primary">All</a>
   </div>
 </div>
 

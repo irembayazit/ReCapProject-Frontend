@@ -1,0 +1,25 @@
+<div class="card mb-2">
+    <div class="card-header text-center">
+       <strong>Brand List</strong>
+    </div>
+    <div class="card-body">
+        
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of brands"> 
+        <td>{{ brand.brandId }}</td>
+        <td>{{ brand.name }}</td>
+        <td><button (click)="UpdatePage()" routerLink="/brand/update/{{brand.brandId}}" type="button" class="btn btn-primary">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+

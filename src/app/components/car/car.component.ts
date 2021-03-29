@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 
-  cars:Car[]=[];
+  cars:CarDto[]=[];
   dataLoaded = false;
   filterText="";
 
@@ -53,8 +53,14 @@ export class CarComponent implements OnInit {
     });
   }
 
-  DetailPage(car:Car){
+  DetailPage(car:CarDto){
     this.toastrService.success("detay sayfasına yonlendiriliyorsunuz",car.brandName);
   }
+
+  UpdatePage(car:CarDto){
+    this.toastrService.success("güncelleme sayfasına yonlendiriliyorsunuz",car.brandName);
+  }
+  
+
 
 }

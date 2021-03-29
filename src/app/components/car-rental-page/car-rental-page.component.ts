@@ -26,9 +26,9 @@ export class CarRentalPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      // if(params["carId"]){
-      //   this.getRentalByCarId(params["carId"])
-      // }
+      if(params["carId"]){
+        this.getRentalByCarId(params["carId"])
+      }
     })
   }
 
@@ -64,7 +64,7 @@ export class CarRentalPageComponent implements OnInit {
     if(this.rentable){
       this.rentalCar = this.rentalCar;
       console.log(this.rentalCar)
-      this.router.navigate(['/creditcard/', JSON.stringify(this.rentalCar)]);
+      this.router.navigate(['/creditcard/' , JSON.stringify(this.rentalCar)]);
       this.toastrService.info("Kredi kartı ödeme sayfasına yönlendiriliyor","Yönlendiriliyor")
     }else{
       this.toastrService.error("Bu tarihler arasında arabayı kiralayamazsınız","Zaten kiralanmış")
