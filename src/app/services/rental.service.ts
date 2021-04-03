@@ -5,6 +5,7 @@ import { listResponseModel } from '../models/listResponseModel';
 import { RentalDto } from '../models/rentalDto';
 import { ResponseModel } from '../models/responseModel';
 import { Rental } from '../models/rental';
+import { ItemResponseModel } from '../models/itemResponseModel';
 
 
 @Injectable({
@@ -20,8 +21,13 @@ export class RentalService {
   }
 
   getRentalsByCarId(carId:number):Observable<listResponseModel<RentalDto>>{
-    let newUrl = this.apiUrl + "getallrentalbycarid?=" + carId ;
+    let newUrl = this.apiUrl + "getallrentalbycarid?carId=" + carId ;
     return this.httpClient.get<listResponseModel<RentalDto>>(newUrl);
+  }
+
+  getRentalByCarId(carId:number):Observable<ItemResponseModel<Rental>>{
+    let newUrl = this.apiUrl + "GetRentalByCarId?carId=" + carId ;
+    return this.httpClient.get<ItemResponseModel<Rental>>(newUrl);
   }
 
   isRentable(rental:Rental):Observable<ResponseModel>{
@@ -29,8 +35,8 @@ export class RentalService {
     return this.httpClient.post<ResponseModel>(newPath,rental);
   }
 
-  addRental(rental:Rental){
-    let newPath = this.apiUrl + "add"
-    this.httpClient.post(newPath,rental).subscribe()
+  addRental(rental:Rental):Observable<ResponseModel>{
+    let newUrl = this.apiUrl + "add";
+    return this.httpClient.post<ResponseModel>(newUrl,rental);
   }
 }

@@ -28,19 +28,19 @@
         <th>Price</th>
         <th>Description</th>
         <th></th>
-        <th></th>
+        <th><button routerLink="/car/add" class="btn btn-primary" >Add Car</button></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of cars | filterCarBrandPipe:filterText">
-        <td>{{ car.carId }}</td>
-        <td>{{ car.brandName }}</td>
-        <td>{{ car.colorName }}</td>
-        <td>{{ car.modelYear }}</td>
-        <td>{{ car.dailyPrice }}</td>
-        <td>{{ car.description }}</td>
-        <td><button (click)="DetailPage(car)"  routerLink="/car/car-detail/{{car.carId}}"  type="button" class="btn btn-success">Detaylar</button></td>
-        <td><button (click)="UpdatePage(car)"  routerLink="/car/car-update/{{car.carId}}"  type="button" class="btn btn-primary">Güncelle</button></td>
+      <tr *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
+        <td>{{ carDto.carId }}</td>
+        <td>{{ carDto.brandName }}</td>
+        <td>{{ carDto.colorName }}</td>
+        <td>{{ carDto.modelYear }}</td>
+        <td>{{ carDto.dailyPrice }}</td>
+        <td>{{ carDto.description }}</td>
+        <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-success">Detail</button></td>
+        <td><button (click)="UpdatePage(carDto)"  routerLink="/car/car-update/{{carDto.carId}}"  type="button" class="btn btn-primary">Update</button></td>
       </tr>
     </tbody>
   </table>

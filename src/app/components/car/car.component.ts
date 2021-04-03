@@ -11,7 +11,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 
-  cars:CarDto[]=[];
+  carDtos:CarDto[]=[];
   dataLoaded = false;
   filterText="";
 
@@ -34,21 +34,21 @@ export class CarComponent implements OnInit {
 
   getCars(){
       this.carService.getCars().subscribe(response=>{
-        this.cars = response.data
+        this.carDtos = response.data
         this.dataLoaded = true;
     });
   }
   
   getCarsByBrand(brandId:number){
     this.carService.getCarsByBrand(brandId).subscribe(response=>{
-      this.cars = response.data
+      this.carDtos = response.data
       this.dataLoaded = true;
     });
   }
 
   getCarsByColor(colorId:number){
     this.carService.getCarsByColor(colorId).subscribe(response=>{
-      this.cars = response.data
+      this.carDtos = response.data
       this.dataLoaded = true;
     });
   }

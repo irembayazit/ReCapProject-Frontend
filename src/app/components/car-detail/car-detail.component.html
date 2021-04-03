@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-4">
       <div class="card-body">
-        <ul class="list-group" routerLink="/car/car-rental-page/{{car.carId}}">
+        <ul class="list-group" *ngIf="car">
           <li class="list-group-item"><h5>Car Details</h5> </li>
           <li class="list-group-item">Car Id : {{ car.carId  }}</li>
           <li class="list-group-item">Brand : {{ car.brandName }}</li>
@@ -20,8 +20,7 @@
           <li class="list-group-item">Daily Price : {{ car.dailyPrice }} ₺ </li>
           <li class="list-group-item">Description : {{ car.description }}</li>
           <br>
-          <button  
-            type="button" class="btn btn-success">Aracı kirala
+          <button type="button" routerLink="/car/car-rental-page/{{car.carId}}" class="btn btn-success">Aracı kirala
           </button>
         </ul>
       </div>

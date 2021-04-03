@@ -9,13 +9,16 @@
       <tr>
         <th>Id</th>
         <th>Brand</th>
-        <th></th>
+        <th><button routerLink="/brand/add" class="btn btn-success " >Add Brand</button></th>
+        <th><button routerLink="/brand/add" class="btn btn-danger " >Delete</button></th>
+        
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let brand of brands"> 
         <td>{{ brand.brandId }}</td>
         <td>{{ brand.name }}</td>
+        <td></td>
         <td><button (click)="UpdatePage()" routerLink="/brand/update/{{brand.brandId}}" type="button" class="btn btn-primary">Update</button></td>
       </tr>
     </tbody>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CarDto } from 'src/app/models/carDto';
 import { CartItem } from 'src/app/models/carItem';
 import { CartService } from 'src/app/services/cart.service';
 

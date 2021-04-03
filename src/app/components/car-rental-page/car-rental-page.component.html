@@ -11,11 +11,37 @@
       <label for="iadeTarihi" style="width:100px;">Teslim tarihi : </label>
       <input type="date" id="iadeTarihi" class="form-control" (change)="calculatePrice()" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}">
     </p>
-    <div>
-      <button (click)="addRental()" type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;">Kirala</button>
-    </div>
   </div>
   
+   
+<div class="card">
+  <div class="card-header">
+    Ödeme İşlemleri
+  </div>
+  <div class="card-body">
+      <label for="adSoyad" class="form-label">Ad Soyad</label>
+      <input type="text" class="form-control" [(ngModel)]="nameSurname" id="adSoyad" placeholder="Ad Soyad giriniz">
+      <div class="mt-3">
+          <label for="kartNumarasi" class="form-label">Kart Numarası</label>
+          <input type="text" class="form-control"[(ngModel)]="CardNumber" id="kartNumarasi" placeholder="Kart numarası giriniz">
+      </div>
+      <div class="row mt-3">
+          <div class="col-md-6">
+              <label for="GüvelikKodu" class="form-label">Güvelik Kodu</label>
+              <input type="text" class="form-control" [(ngModel)]="GuvenlikKodu" id="GüvelikKodu" placeholder="Güvenlik kodunu giriniz">
+          </div>
+          <div class="col-md-6">
+              <label for="SonKullanım" class="form-label">Son kullanım tarihi</label>
+              <input type="text" class="form-control" [(ngModel)]="endDateCart" id="SonKullanım" placeholder="Son kullanma giriniz">
+          </div>
+      </div>
+      
+      <br><br><br>
+      <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;" (click)="Add()">Kirala</button>
+      
+  </div>
 </div>
 
-    
+</div>
+
+ 

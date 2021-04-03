@@ -19,7 +19,6 @@ import { FilterColorPipePipe } from './pipe/filter-color-pipe.pipe';
 
 import {ToastrModule} from "ngx-toastr";
 import { CarRentalPageComponent } from './components/car-rental-page/car-rental-page.component';
-import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
@@ -31,6 +30,7 @@ import { ColorsComponent } from './components/colors/colors.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FilterBrandPipePipe,
     FilterColorPipePipe,
     CarRentalPageComponent,
-    CreditCardComponent,
     CarAddComponent,
     BrandAddComponent, 
     ColorAddComponent,
@@ -57,6 +56,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ColorsComponent,
     ColorUpdateComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

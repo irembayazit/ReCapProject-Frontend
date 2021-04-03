@@ -4,4 +4,5 @@ export interface CreditCard{
     CardNumber:string;
     CardCvv:string;
     Money:number;
+    EndDate:string;
 }

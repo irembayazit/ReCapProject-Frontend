@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemResponseModel } from '../models/itemResponseModel';
 import { LoginModel } from '../models/loginModel';
+import { RegisterModel } from '../models/registerModel';
 import { TokenModel } from '../models/tokenModel';
 
 @Injectable({
@@ -15,6 +16,10 @@ export class AuthService {
 
   login(loginModel:LoginModel){
     return this.httpClient.post<ItemResponseModel<TokenModel>>(this.apiUrl + "login" , loginModel)
+  }
+
+  register(registerModel:RegisterModel){
+    return this.httpClient.post<ItemResponseModel<TokenModel>>(this.apiUrl + "register" , registerModel)
   }
 
   isAuthenticated(){
