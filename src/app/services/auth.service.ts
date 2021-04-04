@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ItemResponseModel } from '../models/itemResponseModel';
 import { LoginModel } from '../models/loginModel';
 import { RegisterModel } from '../models/registerModel';
 import { TokenModel } from '../models/tokenModel';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,11 @@ export class AuthService {
 
   register(registerModel:RegisterModel){
     return this.httpClient.post<ItemResponseModel<TokenModel>>(this.apiUrl + "register" , registerModel)
+  }
+
+  getUser(email:string):Observable<ItemResponseModel<User>>{
+    let newUrl=this.apiUrl+"getuserbyemail?email="+email;
+    return this.httpClient.get<ItemResponseModel<User>>(newUrl);
   }
 
   isAuthenticated(){

@@ -16,7 +16,7 @@ export class RentalService {
   constructor(private httpClient:HttpClient) { }
 
   getRentals():Observable<listResponseModel<RentalDto>>{
-    let newUrl = this.apiUrl + "getall";
+    let newUrl = this.apiUrl + "getallrentaldto";
     return this.httpClient.get<listResponseModel<RentalDto>>(newUrl);
   }
 

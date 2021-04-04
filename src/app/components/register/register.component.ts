@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
         //console.log(response)
         this.toastrService.info(response.message)
         localStorage.setItem("token",response.data.token)
-        this.router.navigate(['/car']);
+        localStorage.setItem("user",JSON.stringify(registerModel.email));
+        window.location.assign("http://localhost:4200/car")
       } ,responseError=>{
         console.log(responseError)
         this.toastrService.error(responseError.error)

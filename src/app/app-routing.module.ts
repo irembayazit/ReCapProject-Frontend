@@ -12,6 +12,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorsComponent } from './components/colors/colors.component';
 import { LoginComponent } from './components/login/login.component';
+import { NaviComponent } from './components/navi/navi.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 
@@ -21,17 +22,18 @@ const routes: Routes = [
   {path : "car/brand/:brandId", component:CarComponent},
   {path : "car/color/:colorId", component:CarComponent},
   {path : "car/car-detail/:carId", component:CarDetailComponent},
-  {path : "car/car-rental-page/:carId", component:CarRentalPageComponent},
+  {path : "car/car-rental-page/:carId", component:CarRentalPageComponent , canActivate:[LoginGuard]},
   {path : "car/add", component:CarAddComponent , canActivate:[LoginGuard]},
-  {path : "brand/add", component:BrandAddComponent},
-  {path : "color/add", component:ColorAddComponent},
-  {path : "car/car-update/:carId", component:CarUpdateComponent},
-  {path : "brand/update/:brandId", component:BrandUpdatesComponent},
-  {path : "color/update/:colorId", component:ColorUpdateComponent},
+  {path : "brand/add", component:BrandAddComponent , canActivate:[LoginGuard]},
+  {path : "color/add", component:ColorAddComponent , canActivate:[LoginGuard]},
+  {path : "car/car-update/:carId", component:CarUpdateComponent , canActivate:[LoginGuard]},
+  {path : "brand/update/:brandId", component:BrandUpdatesComponent , canActivate:[LoginGuard]},
+  {path : "color/update/:colorId", component:ColorUpdateComponent , canActivate:[LoginGuard]},
   {path : "brand/getall", component:BrandsComponent},
   {path : "color/getall", component:ColorsComponent},
   {path : "login", component:LoginComponent},
   {path : "register", component:RegisterComponent},
+  {path : "navi/:login", component:NaviComponent},
 ];
 
 @NgModule({
