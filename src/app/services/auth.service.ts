@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   getUser(email:string):Observable<ItemResponseModel<User>>{
-    let newUrl=this.apiUrl+"getuserbyemail?email="+email;
+    let newUrl=this.apiUrl+"getuserdtobyemail?email="+email;
     return this.httpClient.get<ItemResponseModel<User>>(newUrl);
   }
 

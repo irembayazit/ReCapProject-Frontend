@@ -14,6 +14,8 @@ import { ItemResponseModel } from '../models/itemResponseModel';
 export class RentalService {
   apiUrl="https://localhost:44378/api/rental/";
   constructor(private httpClient:HttpClient) { }
+  rentalCheckout: boolean = false;
+  _rental:Rental;
 
   getRentals():Observable<listResponseModel<RentalDto>>{
     let newUrl = this.apiUrl + "getallrentaldto";
@@ -31,6 +33,8 @@ export class RentalService {
   }
 
   isRentable(rental:Rental):Observable<ResponseModel>{
+    this.rentalCheckout =true;
+    this._rental = rental;
     let newPath = this.apiUrl + "isrentable";
     return this.httpClient.post<ResponseModel>(newPath,rental);
   }

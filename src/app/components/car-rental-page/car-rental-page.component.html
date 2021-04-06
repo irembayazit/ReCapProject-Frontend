@@ -1,48 +1,42 @@
 <br><br>
-<div class="card text-dark bg-light mb-3" style="max-width: 50rem; height:220px;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <div>
-      <label for="kiralamaTarihi" style="width:125px;" >Kiralanma tarihi : </label>
-      <input type="date" id="kiralamaTarihi" class="form-control" (change)="calculatePrice()" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}">
-      <div class="invalid-feedback">Bu tarihte arac kiralanmış</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header" style="font-size: 130%;"><b>Date</b></div>
+      <div class="card-body">
+        <div [formGroup]="dateForm">
+          <div class="mb-3">
+            <label for="rentDate">Kiralanma tarihi : </label>
+            <div class="form-group">
+                <input type="date"
+                id="rentDate"
+                formControlName="rentDate"
+                class="form-control"
+                placeholde="Marka id"
+                />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="returnDate">Teslim tarihi : </label>
+            <div class="form-group">
+                <input type="date"
+                id="returnDate"
+                formControlName="returnDate"
+                class="form-control"
+                placeholde="Marka id"
+                />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-success" style="float:right;"  (click)="setRentable()">Onayla</button>
+      </div>
     </div>
-    <br>
-    <p>
-      <label for="iadeTarihi" style="width:100px;">Teslim tarihi : </label>
-      <input type="date" id="iadeTarihi" class="form-control" (change)="calculatePrice()" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}">
-    </p>
   </div>
+  <div class="col-md-8">
+    <app-credit-card></app-credit-card>
+  </div>
+</div>
   
-   
-<div class="card">
-  <div class="card-header">
-    Ödeme İşlemleri
-  </div>
-  <div class="card-body">
-      <label for="adSoyad" class="form-label">Ad Soyad</label>
-      <input type="text" class="form-control" [(ngModel)]="nameSurname" id="adSoyad" placeholder="Ad Soyad giriniz">
-      <div class="mt-3">
-          <label for="kartNumarasi" class="form-label">Kart Numarası</label>
-          <input type="text" class="form-control"[(ngModel)]="CardNumber" id="kartNumarasi" placeholder="Kart numarası giriniz">
-      </div>
-      <div class="row mt-3">
-          <div class="col-md-6">
-              <label for="GüvelikKodu" class="form-label">Güvelik Kodu</label>
-              <input type="text" class="form-control" [(ngModel)]="GuvenlikKodu" id="GüvelikKodu" placeholder="Güvenlik kodunu giriniz">
-          </div>
-          <div class="col-md-6">
-              <label for="SonKullanım" class="form-label">Son kullanım tarihi</label>
-              <input type="text" class="form-control" [(ngModel)]="endDateCart" id="SonKullanım" placeholder="Son kullanma giriniz">
-          </div>
-      </div>
-      
-      <br><br><br>
-      <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;" (click)="Add()">Kirala</button>
-      
-  </div>
-</div>
-
-</div>
-
- 

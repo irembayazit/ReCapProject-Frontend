@@ -1,9 +1,9 @@
 export interface CreditCard{
-    Id?:number;
-    CustomerId:number;
-    NameSurname:string;
-    CardNumber:string;
-    CardCvv:string;
-    Money:number;
-    EndDate:string;
+    id?:number;
+    customerId:number;
+    nameSurname:string;
+    cardNumber:string;
+    cardCvv:string;
+    money:number;
+    endDate:string;
 }

@@ -23,14 +23,14 @@ export class ColorUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["colorId"]){
-        this.getBrandByBrandId(params["colorId"])
+        this.getColorByColorId(params["colorId"])
       }
       this.createColorUpdateForm();
     })
   }
 
-  getBrandByBrandId(colorId:number){
-    this.colorService.getBrandByBrandId(colorId).subscribe(response=>{
+  getColorByColorId(colorId:number){
+    this.colorService.getColorByColorId(colorId).subscribe(response=>{
       this.color = response.data;
       console.log(this.color)
       this.ColorUpdateForm.setValue({
@@ -50,7 +50,7 @@ export class ColorUpdateComponent implements OnInit {
   update(){
     if(this.ColorUpdateForm.valid){
       let colorModel = Object.assign({},this.ColorUpdateForm.value)
-      colorModel.brandId = this.color.colorId;
+      colorModel.colorId = this.color.colorId;
       this.colorService.update(colorModel).subscribe(response=>{
       this.toastrService.success(response.message,"Güncelleme işlemi başarılı");
     },responseError=>{

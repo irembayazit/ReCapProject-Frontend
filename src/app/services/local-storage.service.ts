@@ -8,6 +8,7 @@ export class LocalStorageService {
 
   tokenKey:string="token";
   currentUser:string="user";
+  rentable:string="rentable";
 
   constructor() { }
 
@@ -34,5 +35,15 @@ export class LocalStorageService {
   removeUser(){
     localStorage.removeItem(this.currentUser);
   }
+
+  setRental(rentable:boolean){
+    localStorage.setItem(this.rentable,JSON.stringify(rentable));
+  }
+
+  getRental(){
+    return JSON.parse(localStorage.getItem(this.rentable) ||'{}');
+  }
+
+  
 
 }

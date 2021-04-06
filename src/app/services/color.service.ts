@@ -20,7 +20,7 @@ export class ColorService {
     return this.httpClient.get<listResponseModel<Color>>(newPath);
   }
 
-  getBrandByBrandId(colorId:number):Observable<ItemResponseModel<Color>>{
+  getColorByColorId(colorId:number):Observable<ItemResponseModel<Color>>{
     let newPath = this.apiUrl + "getcolorbycolorid?id=" + colorId;
     return this.httpClient.get<ItemResponseModel<Color>>(newPath);
   }

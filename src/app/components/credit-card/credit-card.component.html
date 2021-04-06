@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-header" style="font-size: 130%;">
+        <b>Ödeme İşlemleri</b>    
+    </div>
+    <div class="card-body">
+        <div [formGroup]="creditCardForm">
+            <div class="mb-3">
+                <label for="nameSurname">Ad Soyad</label>
+                <div class="form-group">
+                    <input type="text"
+                    id="nameSurname"
+                    formControlName="nameSurname"
+                    class="form-control"
+                    placeholde="Marka id"
+                    />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber">Kart Numarası</label>
+                <div class="form-group">
+                    <input type="text"
+                    id="cardNumber"
+                    formControlName="cardNumber"
+                    class="form-control"
+                    placeholder="0000-0000-0000-0000"
+                    />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="mb-3">
+                    <label for="cardCvv">Güvelik Kodu</label>
+                    <div class="form-group">
+                        <input type="text"
+                        id="cardCvv"
+                        formControlName="cardCvv"
+                        class="form-control"
+                        placeholder="_ _ _"
+                        />
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="endDate">Son kullanım tarihi</label>
+                    <div class="form-group">
+                        <input type="text"
+                        id="endDate"
+                        formControlName="endDate"
+                        class="form-control"
+                        placeholder="_ _ /_ _"
+                        />
+                    </div>
+                </div>
+            </div>
+         </div>            
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-fill btn-primary" style="float:right;" (click)="question()">Kirala</button>
+    </div>
+</div>
