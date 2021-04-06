@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginModel } from 'src/app/models/loginModel';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-navi',
@@ -14,11 +15,11 @@ export class NaviComponent implements OnInit {
   name:User;
   authControl:boolean=false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
     if(this.authService.isAuthenticated()==true){     
-      let email = JSON.parse(localStorage.getItem("user") ||'{}');
+      let email = this.localStorageService.getUser();
       console.log(email)
       this.getUser(email);
     }
@@ -34,7 +35,11 @@ export class NaviComponent implements OnInit {
   }
 
 
-
+  logOut(){
+    this.localStorageService.removeToken();
+    this.localStorageService.removeUser();
+    window.location.assign("http://localhost:4200/car")
+  }
 
 
 }

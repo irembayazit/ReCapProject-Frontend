@@ -11,9 +11,12 @@ import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorsComponent } from './components/colors/colors.component';
+import { CustomerComponent } from './components/customer/customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { NaviComponent } from './components/navi/navi.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -34,6 +37,10 @@ const routes: Routes = [
   {path : "login", component:LoginComponent},
   {path : "register", component:RegisterComponent},
   {path : "navi/:login", component:NaviComponent},
+  {path : "profile", component:ProfileComponent},
+  {path : "rental", component:RentalComponent},
+  {path : "customer", component:CustomerComponent},
+  
 ];
 
 @NgModule({

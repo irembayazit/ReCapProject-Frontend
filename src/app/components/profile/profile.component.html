@@ -1,0 +1,37 @@
+<br><br>
+<div class="row">
+    <div class="col-md-3 container"  style="max-width: 300px;height:300px; border:2px solid rgb(138, 141, 182); border-radius: 5%;">
+        <br><img width="100%" src="/assets/images/user.jpg">
+    </div>
+
+    <div class=" col-md-9">
+        <div class="card mb-2">               
+            <div class="card-header text-center">
+                <strong style="font-size: 20px;">Profile</strong>
+            </div>
+            
+            <div class="card-body" *ngIf="user">    
+                <div [formGroup]="userUpdatedForm">    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="email" class="form-control" id="name" formControlName="firstName" placeholder=" {{user.firstName}} ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="email" class="form-control" id="surname" formControlName="lastName" placeholder="{{user.lastName}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="{{emailUser}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">New Password</label>
+                        <input type="text" class="form-control" id="currentPassword" formControlName="currentPassword" placeholder="current password">
+                        <input type="text" class="form-control mt-2" id="password" formControlName="newPassword" placeholder="new password">
+                    </div>
+                    <button class="btn btn-success" style="float:right;"  (click)="update()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
