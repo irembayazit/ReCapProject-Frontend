@@ -5,5 +5,6 @@ export interface CreditCard{
     cardNumber:string;
     cardCvv:string;
     money:number;
-    endDate:string;
+    endDateMonth:string;
+    endDateYear:string;
 }

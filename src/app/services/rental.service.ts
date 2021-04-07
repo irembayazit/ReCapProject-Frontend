@@ -12,7 +12,7 @@ import { ItemResponseModel } from '../models/itemResponseModel';
   providedIn: 'root'
 })
 export class RentalService {
-  apiUrl="https://localhost:44378/api/rental/";
+  apiUrl="https://localhost:44320/api/rental/";
   constructor(private httpClient:HttpClient) { }
   rentalCheckout: boolean = false;
   _rental:Rental;

@@ -18,7 +18,7 @@ export class CarRentalPageComponent implements OnInit {
   dateForm : FormGroup;
   user:User;
   car:Car;
-  rentable:boolean;
+  rentable:boolean = false;
 
   constructor(private formBuilder:FormBuilder,
     private activatedRoute:ActivatedRoute,
@@ -76,22 +76,32 @@ export class CarRentalPageComponent implements OnInit {
     })
   }
 
+  getCurrentClass(){
+    if(this.rentable){
+      return "form-control is-valid"
+    } 
+    else{
+      return "form-control is-invalid"
+    }
+  }
+
   setRentable(){
     if(this.dateForm.valid){
       let dateModel = Object.assign({},this.dateForm.value)
       console.log(this.dateForm.value)      
       this.rentalService.isRentable(dateModel).subscribe(response=>{
         console.log(this.rentalService.rentalCheckout)
-        console.log("rentable: "+ response.success)        
+        this.rentable = response.success;       
       },responseError=>{ 
         if(responseError.error){
+          this.rentable = responseError.success; 
           this.toastrService.error(responseError.error.message)
           this.rentalService.rentalCheckout = false;
           console.log(this.rentalService.rentalCheckout)
         }
       })   
     }else{      
-      this.toastrService.error("formunuz eksik","Dikkat!")
+      this.toastrService.error("Form is missing","Warning!")
     }
   }
  

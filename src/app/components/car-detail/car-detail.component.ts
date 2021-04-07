@@ -19,7 +19,7 @@ export class CarDetailComponent implements OnInit {
   user:User;
   carImages: CarImage[];
   car: CarDto;
-  apiUrl = "https://localhost:44378/";
+  apiUrl = "https://localhost:44320/";
   
   constructor(private carDetailService:CarDetailService,
     private carService:CarService,

@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  apiUrl = "https://localhost:44378/api/user/userupdatedate";
+  apiUrl = "https://localhost:44320/api/user/userupdatedate";
 
   constructor(private httpClient:HttpClient) { }
 

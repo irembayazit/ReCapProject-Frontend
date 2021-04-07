@@ -16,7 +16,9 @@ export class CreditCardComponent implements OnInit {
 
   creditCardForm : FormGroup;
   name:User;
-  
+  endDateMonths : number[] = []
+  endDateYears : number[] = []
+
   constructor(private formBuilder:FormBuilder,
     private authService: AuthService,
     private localStorageService:LocalStorageService,
@@ -40,15 +42,19 @@ export class CreditCardComponent implements OnInit {
         customerId: this.name.customerId,
       })
     })
+    this.endDateMonths = Array.from({length: 12}, (v, k) => k + 1);
+    this.endDateYears = Array.from({length: 100}, (v, k) => k + 1);
   }
 
+  
   createAddForm(){
     this.creditCardForm = this.formBuilder.group({
       customerId : ["",Validators.required],
       nameSurname : ["",Validators.required],
       cardNumber : ["",Validators.required],
       cardCvv : ["",Validators.required],
-      endDate : ["",Validators.required],
+      endDateMonth : ["",Validators.required],
+      endDateYear : ["",Validators.required],
       money : [10000,Validators.required],
     })
   }
@@ -63,13 +69,13 @@ export class CreditCardComponent implements OnInit {
       }
     }else{
       console.log(this.creditCardForm.value) 
-      this.toastrService.error("formunuz eksik","Dikkat!")
+      this.toastrService.error("Form is missing","Warning!")
     }    
   }
 
   cardRental(){    
     if(!this.rentalService.rentalCheckout){
-      this.toastrService.error("Tarih bilgilerinizi giriniz")
+      this.toastrService.error("Enter date information")
     }
     else{
       if(this.creditCardForm.valid){
@@ -79,31 +85,31 @@ export class CreditCardComponent implements OnInit {
           console.log("credi kart bilgileri kaydedildi")      
 
           this.rentalService.addRental(this.rentalService._rental).subscribe(response=>{
-            console.log("kiralama bilgileri kaydedildi") 
+            console.log("Araç kiralandı") 
             this.toastrService.success(response.message)
           },responseError=>{
             this.toastrService.error(responseError.error.message);             
           })
-          this.toastrService.success(response.message,"İşlem");
+          this.toastrService.success(response.message,"Operation");
           
         },responseError=>{
           if(responseError.error.Errors.length >0){
             console.log(responseError.error.Errors)
             for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Dogrulama hatası");
+              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Verification error");
             }
           }
         })
       }else{
         console.log(this.creditCardForm.value) 
-        this.toastrService.error("formunuz eksik","Dikkat!")
+        this.toastrService.error("Form is missing","Warning!")
       }      
     }
   }
 
   rental(){    
     if(!this.rentalService.rentalCheckout){
-      this.toastrService.error("Tarih bilgilerinizi giriniz")
+      this.toastrService.error("Enter date information")
     }
     else{      
       this.rentalService.addRental(this.rentalService._rental).subscribe(response=>{

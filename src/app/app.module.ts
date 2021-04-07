@@ -33,6 +33,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { RegisteredCardComponent } from './components/registered-card/registered-card.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
     RegisterComponent,
     ProfileComponent,
     CreditCardComponent,
+    RegisteredCardComponent,
   ],
   imports: [
     BrowserModule,

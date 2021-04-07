@@ -9,7 +9,7 @@ import { Customer } from '../models/customer';
 })
 export class CustomerService {
 
-  apiUrl = "https://localhost:44378/api/customer/GetCustomerDetailDTOs";
+  apiUrl = "https://localhost:44320/api/customer/GetCustomerDetailDTOs";
   
   constructor(private httpClient:HttpClient) { }
 

@@ -13,7 +13,7 @@ import { ItemResponseModel } from '../models/itemResponseModel';
 })
 export class CarService {
 
-  apiUrl = "https://localhost:44378/api/";
+  apiUrl = "https://localhost:44320/api/";
 
   constructor(private httpClient:HttpClient) { }
 

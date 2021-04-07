@@ -12,7 +12,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
 
-  apiUrl = "https://localhost:44378/api/auth/";
+  apiUrl = "https://localhost:44320/api/auth/";
 
   constructor(private httpClient:HttpClient) { }
 

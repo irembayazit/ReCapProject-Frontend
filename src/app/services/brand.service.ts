@@ -11,7 +11,7 @@ import { ItemResponseModel } from '../models/itemResponseModel';
 })
 export class BrandService {
 
-  apiUrl = "https://localhost:44378/api/brand/";
+  apiUrl = "https://localhost:44320/api/brand/";
 
   constructor(private httpClient:HttpClient) { }
 

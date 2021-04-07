@@ -1,29 +1,35 @@
 <br><br>
 
 <div class="row">
+  <div class="col-md-8">
+    <app-registered-card></app-registered-card>
+    <br>
+    <br>
+    <app-credit-card></app-credit-card>
+  </div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header" style="font-size: 130%;"><b>Date</b></div>
-      <div class="card-body">
+      <div class="card-body ">
         <div [formGroup]="dateForm">
           <div class="mb-3">
-            <label for="rentDate">Kiralanma tarihi : </label>
+            <label for="rentDate">Rent Date : </label>
             <div class="form-group">
                 <input type="date"
                 id="rentDate"
                 formControlName="rentDate"
-                class="form-control"
+                [class]="getCurrentClass()"
                 placeholde="Marka id"
                 />
             </div>
-          </div>
+          </div>            
           <div class="mb-3">
-            <label for="returnDate">Teslim tarihi : </label>
+            <label for="returnDate">Return Date : </label>
             <div class="form-group">
                 <input type="date"
                 id="returnDate"
                 formControlName="returnDate"
-                class="form-control"
+                [class]="getCurrentClass()"
                 placeholde="Marka id"
                 />
             </div>
@@ -31,12 +37,10 @@
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-fill btn-success" style="float:right;"  (click)="setRentable()">Onayla</button>
+        <button class="btn btn-fill btn-success" style="float:right;"  (click)="setRentable()">Confirmation</button>
       </div>
     </div>
-  </div>
-  <div class="col-md-8">
-    <app-credit-card></app-credit-card>
-  </div>
-</div>
+  </div>  
+</div>  
+
   
