@@ -34,6 +34,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { RegisteredCardComponent } from './components/registered-card/registered-card.component';
+import { NaviEndComponent } from './components/navi-end/navi-end.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { RegisteredCardComponent } from './components/registered-card/registered
     ProfileComponent,
     CreditCardComponent,
     RegisteredCardComponent,
+    NaviEndComponent,
   ],
   imports: [
     BrowserModule,

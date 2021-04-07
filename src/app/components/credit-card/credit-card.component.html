@@ -1,34 +1,53 @@
 <div class="container">
     <div class="card">
-        <div class="card-header" style="font-size: 130%;">
+        <div class="card-header" style="font-size:130%;">
             <b>Ödeme İşlemleri</b>    
         </div>
         <div class="card-body">
             <div [formGroup]="creditCardForm">
-                <div class="mb-3">
-                    <label for="nameSurname">Name Surname</label>
-                    <div class="form-group">
-                        <input type="text"
-                        id="nameSurname"
-                        formControlName="nameSurname"
-                        class="form-control"
-                        />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="nameSurname">Name Surname<span style="color:red;">*</span></label>
+                            <div class="form-group">
+                                <input type="text"
+                                id="nameSurname"
+                                formControlName="nameSurname"
+                                class="form-control"
+                                />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber">Kard Number<span style="color:red;">*</span></label>
+                            <div class="form-group">
+                                <input type="text"
+                                id="cardNumber"
+                                formControlName="cardNumber"
+                                class="form-control"
+                                placeholder="0000-0000-0000-0000"
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="cardNumber">Kard Number</label>
-                    <div class="form-group">
-                        <input type="text"
-                        id="cardNumber"
-                        formControlName="cardNumber"
-                        class="form-control"
-                        placeholder="0000-0000-0000-0000"
-                        />
+                    <div class="col-md-6" style=" width:320px; height:180px; margin: 0;" >
+                        <div id="next" class="carousel slide"  data-bs-interval="false">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active" data-bs-interval="10000">
+                                <img src="/assets/images/card.png" class="d-block w-100" style="max-width:560px;height:180px;" >
+                              </div>
+                              <div class="carousel-item" data-bs-interval="10000">
+                                <img src="/assets/images/CardBack.jpg" class="d-block w-100" style="max-width:555px;height:210px;">
+                              </div>
+                            </div>
+                        </div>
+                        <div class="carousel-control-next" type="button" data-bs-target="#next" data-bs-slide="next" style="height:300px;">
+                            <img src="/assets/images/ok.jpg" class="d-block w-100" style="max-width:40px;height:40px;" >
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3">                
+                </div>  
+                <div class="row mt-4">                
                     <div class="mb-3 col-md-3">
-                        <label for="endDateMonth">End Date</label>
+                        <label for="endDateMonth">End Date<span style="color:red;">*</span></label>
                         <select id="endDateMonth"
                             formControlName="endDateMonth"
                             class="form-select" >
@@ -44,7 +63,7 @@
                         </select>
                     </div>
                     <div class="mb-3 col-md-5">
-                        <label for="cardCvv">Güvelik Kodu</label>
+                        <label for="cardCvv"class="hover-menu">Güvelik Kodu<span style="color:red;">*</span></label>                       
                         <div class="form-group">
                             <input type="text"
                             id="cardCvv"
