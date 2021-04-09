@@ -10,12 +10,18 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  apiUrl = "https://localhost:44320/api/user/userupdatedate";
+  apiUrl = "https://localhost:44320/api/user/";
 
   constructor(private httpClient:HttpClient) { }
 
   update(user:UpdateUser):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl,user);
+    let newUrl = this.apiUrl + "userupdatedate";
+    return this.httpClient.post<ResponseModel>(newUrl,user);
+  }
+
+  getAuthority():Observable<ResponseModel>{
+    let newUrl = this.apiUrl + "authority";
+    return this.httpClient.get<ResponseModel>(newUrl);
   }
 
 }

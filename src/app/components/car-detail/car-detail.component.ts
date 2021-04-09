@@ -7,8 +7,11 @@ import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarService } from 'src/app/services/car.service';
-import { CartService } from 'src/app/services/cart.service';
+import { NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { NgxGalleryImage } from '@kolkov/ngx-gallery';
+import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+
 
 @Component({
   selector: 'app-car-detail',
@@ -17,15 +20,16 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 })
 export class CarDetailComponent implements OnInit {
   user:User;
-  carImages: CarImage[];
+  carImages: CarImage[] = [];
   car: CarDto;
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
   apiUrl = "https://localhost:44320/";
   
   constructor(private carDetailService:CarDetailService,
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
     private toastrService:ToastrService,
-    private cartService:CartService,
     private authService: AuthService,
     private localStorageService:LocalStorageService,
     private router:Router) { }
@@ -69,25 +73,16 @@ export class CarDetailComponent implements OnInit {
     }
     else{
       this.router.navigate(['/car/car-rental-page/'+ this.car.carId ]) 
-    }
-    
-  } 
+    }    
+  }
 
   getCurrentImageClass(image:CarImage){
     if(image==this.carImages[0]){
       return "carousel-item col-md-4 active"
-    } else {
+    } 
+    else {
       return "carousel-item"
     }
   }
-
-  getButtonClass(image:CarImage){
-    if(image==this.carImages[0]){
-      return "active"
-    } else {
-      return ""
-    }
-  }
-
 
 }

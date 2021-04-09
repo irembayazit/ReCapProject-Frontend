@@ -3,60 +3,34 @@
 </div>
 
 <div class="row">
-  <div class="col-md-3">
-    <div class="mt-3">
-      <app-brand></app-brand>
-    </div>
-    <div class="mt-3">
-      <app-color></app-color>
-    </div>
+  
+  <div class="col-md-2">
+    <app-filter></app-filter>
   </div>
 
-  <div class="col-md-9 mt-3">
-    <div class="card mb-2">
+  <div class="col-md-10 mt-3">
+    <div class=" mb-2">
+        <div class="mb-3">
+          <label for="filterText" class="form-label">Araba ara</label>
+          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+        </div>
 
-      <div class="card-header text-center">
-        <strong>Araç Listesi</strong>
+      <div class="card" style=" width: 340px; display: inline-block; margin-left:10px; margin-bottom: 10px;"  *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
+        <img src="{{apiUrl + carDto.imagePath }}" class="card-img-top" style="height:220px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ carDto.brandName }}</h5>
+          <p class="card-text">
+            {{ carDto.dailyPrice }}
+            {{ carDto.brandName }}
+            {{ carDto.carId }}
+            {{ carDto.description }}
+          </p>
+          <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-success">Detail</button></td>
+          <td><button (click)="UpdatePage(carDto)"  routerLink="/car/car-update/{{carDto.carId}}"  type="button" class="btn btn-primary">Update</button></td>
+        </div>
       </div>
 
-      <div class="card-body">
-
-      <div class="mb-3">
-        <label for="filterText" class="form-label">Araba ara</label>
-        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
-      </div>
-
-      <div *ngIf="filterText.length>2" class="alert alert-success">
-        {{filterText}} yazdınız
-      </div>
-
-      <table *ngIf="dataLoaded==true" class="table table-striped">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Model</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th></th>
-            <th><button routerLink="/car/add" class="btn btn-primary" >Add Car</button></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
-            <td>{{ carDto.carId }}</td>
-            <td>{{ carDto.brandName }}</td>
-            <td>{{ carDto.colorName }}</td>
-            <td>{{ carDto.modelYear }}</td>
-            <td>{{ carDto.dailyPrice }}</td>
-            <td>{{ carDto.description }}</td>
-            <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-success">Detail</button></td>
-            <td><button (click)="UpdatePage(carDto)"  routerLink="/car/car-update/{{carDto.carId}}"  type="button" class="btn btn-primary">Update</button></td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
   </div>
 </div>
+
+

@@ -6,4 +6,5 @@ export interface CarDto{
     dailyPrice: number;
     description: string;
     findex:number;
+    imagePath:string;
 }

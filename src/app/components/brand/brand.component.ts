@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
@@ -14,7 +14,9 @@ export class BrandComponent implements OnInit {
   currentBrand:Brand;
   filterTextBrand="";
   brandOption:number;
-
+  allBrand: Brand;
+  @Output() brandId = new EventEmitter<number>();
+  
   constructor(private brandService:BrandService,
     private toastrService:ToastrService) { }
 
@@ -28,34 +30,9 @@ export class BrandComponent implements OnInit {
     })
   }
 
-  setCurrentBrand(brand:Brand){
-    this.currentBrand = brand;
-  }
+  setCurrentBrand(){    
+    this.brandId.emit(this.currentBrand?.brandId);
+  } 
 
-  getCurrentBrandClass(brand:Brand){
-    if(brand == this.currentBrand){
-      return "list-group-item list-group-item-action active"
-    }else{
-      return "list-group-item list-group-item-action"
-    }
-  }
-
-  // brandId:number;
-  // getBrandId(brand:Brand){
-  //   this.brandId = brand.brandId;
-  //   console.log(this.brandId);
-  //   return this.brandId;
-  // }
-
-  getSelectedBrand(brandId: Number) {
-    if (this.brandOption == brandId)
-      return true;
-    else
-      return false;
-  }
-
-  Brands(){
-    this.toastrService.success("markalar listeleniyor");
-  }
 
 }

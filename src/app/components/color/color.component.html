@@ -1,21 +1,13 @@
 <br>
-
 <div class="mb-3">
   <label for="filterTextColor" class="form-label">Renkler</label>
   <input type="text" [(ngModel)]="filterTextColor" class="form-control" id="filterTextColor" placeholder="renk giriniz">
 </div>
 
-<div class="row">
-  <div class="col-md-7">
-    <select [(ngModel)]="colorOption" class="form-select" aria-label="Default select example">
-      <option [value]="color.colorId" selected="{{getSelectedColor(color.colorId)}}"
-        *ngFor="let color of colors | filterColorPipe:filterTextColor"> {{color.name}} </option>
-    </select>
-  </div>
-  <div class="col-md-3">
-    <button routerLink = "/car/color/{{colorOption}}" type="button" class="btn btn-success">Filtrele</button>
-  </div>
-</div>
+<select (change)="setCurrentColor()" [(ngModel)]="currentColor" class="form-select">
+  <option [ngValue]="color" class="option"
+    *ngFor="let color of colors | filterColorPipe:filterTextColor"> {{color.name}} </option>
+</select>
 
 
 

@@ -17,7 +17,9 @@ import { FilterCarBrandPipePipe } from './pipe/filter-car-brand-pipe.pipe';
 import { FilterBrandPipePipe } from './pipe/filter-brand-pipe.pipe';
 import { FilterColorPipePipe } from './pipe/filter-color-pipe.pipe';
 
+import {NgxGalleryModule} from "@kolkov/ngx-gallery";
 import {ToastrModule} from "ngx-toastr";
+
 import { CarRentalPageComponent } from './components/car-rental-page/car-rental-page.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
@@ -35,6 +37,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { RegisteredCardComponent } from './components/registered-card/registered-card.component';
 import { NaviEndComponent } from './components/navi-end/navi-end.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,7 @@ import { NaviEndComponent } from './components/navi-end/navi-end.component';
     CreditCardComponent,
     RegisteredCardComponent,
     NaviEndComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,7 @@ import { NaviEndComponent } from './components/navi-end/navi-end.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxGalleryModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })

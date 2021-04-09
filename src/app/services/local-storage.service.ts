@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TokenModel } from '../models/tokenModel';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LocalStorageService {
   currentUser:string="user";
   rentable:string="rentable";
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   getToken(){
     return localStorage.getItem(this.tokenKey);
@@ -43,6 +44,7 @@ export class LocalStorageService {
   getRental(){
     return JSON.parse(localStorage.getItem(this.rentable) ||'{}');
   }
+
 
   
 
