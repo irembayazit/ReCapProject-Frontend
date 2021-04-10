@@ -38,6 +38,7 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
 import { RegisteredCardComponent } from './components/registered-card/registered-card.component';
 import { NaviEndComponent } from './components/navi-end/navi-end.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { FilterComponent } from './components/filter/filter.component';
     RegisteredCardComponent,
     NaviEndComponent,
     FilterComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

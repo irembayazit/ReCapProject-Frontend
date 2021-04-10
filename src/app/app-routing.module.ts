@@ -12,6 +12,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorsComponent } from './components/colors/colors.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -20,7 +21,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  {path : "" , pathMatch:"full" , component:CarComponent},
+  {path : "" ,  component:HomePageComponent},
   {path : "car", component:CarComponent},
   {path : "car/brand/:brandId", component:CarComponent},
   {path : "car/color/:colorId", component:CarComponent},

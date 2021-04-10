@@ -2,35 +2,35 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<div class="row">
+<div class="container">
+<div class="row p-3">
   
   <div class="col-md-2">
     <app-filter></app-filter>
   </div>
 
-  <div class="col-md-10 mt-3">
+  <div class="col-md-10">
     <div class=" mb-2">
         <div class="mb-3">
-          <label for="filterText" class="form-label">Araba ara</label>
-          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+          <input  type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
         </div>
 
-      <div class="card" style=" width: 340px; display: inline-block; margin-left:10px; margin-bottom: 10px;"  *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
+      <div class="card" style="border:2px solid black; width: 336px; display: inline-block; margin-left:10px; margin-bottom: 10px;"  *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
         <img src="{{apiUrl + carDto.imagePath }}" class="card-img-top" style="height:220px;">
         <div class="card-body">
           <h5 class="card-title">{{ carDto.brandName }}</h5>
-          <p class="card-text">
-            {{ carDto.dailyPrice }}
-            {{ carDto.brandName }}
-            {{ carDto.carId }}
-            {{ carDto.description }}
-          </p>
-          <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-success">Detail</button></td>
-          <td><button (click)="UpdatePage(carDto)"  routerLink="/car/car-update/{{carDto.carId}}"  type="button" class="btn btn-primary">Update</button></td>
+          <span style="color:rgb(26, 88, 54);font-size:20px;">$</span>
+          <span class="card-text" style="color:rgb(26, 88, 54);font-size:30px;font-weight:550;">
+             {{ carDto.dailyPrice }}
+          </span>
+          <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-primary">Detail</button></td>
+          <td><img (click)="UpdatePage(carDto)" class="m-3" routerLink="/car/car-update/{{carDto.carId}}" src="/assets/images/images.png" style="cursor:pointer; width:30px; height:30px"></td>
+          
         </div>
       </div>
-
+    </div>
   </div>
+</div>
 </div>
 
 

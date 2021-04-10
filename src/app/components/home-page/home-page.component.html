@@ -1,0 +1,65 @@
+<div style="background-image:url('/assets/images/home_1536x665.jpg');width:1536px;height: 665px;background-attachment:fixed;background-repeat:no-repeat;
+background-size: cover;"> 
+    <div class=" position-absolute end-50 " style="width:550px;height:250px;">
+        <div class="row">
+            <div class="col-md-5 position-absolute top-50 start-0 translate-middle-y">
+                <label class="col-md-12">Buying Office </label>
+                <select class="selectbox" style="height: 50px;width:300px;">
+                    <option value="4">Adana İç Hatlar</option>
+                    <option value="109">Ankara Batıkent</option>
+                    <option value="79">Elazığ Havalimanı</option>
+                    <option value="140">İstanbul Astoria Avm</option>
+                    <option value="53">İstanbul Sabiha Gökçen Havalimanı</option>
+                    <option value="95">İzmir Çeşme (Alaçatı)</option>
+                    <option value="25">İzmir İç Hatlar</option>
+                    <option value="29">Trabzon Havalimanı</option>
+                </select>
+            </div>
+            <div class="col-md-5 position-absolute top-50 end-0 translate-middle-y">
+                <label class="col-md-12">Return Office</label>
+                <select class="selectbox" style="height: 50px;width:300px;">
+                    <option value="4">Adana İç Hatlar</option>
+                    <option value="109">Ankara Batıkent</option>
+                    <option value="79">Elazığ Havalimanı</option>
+                    <option value="140">İstanbul Astoria Avm</option>
+                    <option value="53">İstanbul Sabiha Gökçen Havalimanı</option>
+                    <option value="95">İzmir Çeşme (Alaçatı)</option>
+                    <option value="25">İzmir İç Hatlar</option>
+                    <option value="29">Trabzon Havalimanı</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 position-absolute bottom-0 start-0" style="height:45px;width:250px;">
+                <div class="mb-3">
+                    <label for="rentDate">Rent Date</label>
+                    <div>
+                        <input type="date"
+                        id="rentDate"
+                        [(ngModel)]="rentDate"
+                        [class]="getCurrentClass()"
+                        placeholde="Marka id"
+                        />
+                    </div>
+                </div>  
+            </div>          
+            <div class="col-md-5 position-absolute bottom-0 end-0" style="height:45px;width:250px;">      
+                <div class="mb-3">
+                    <label for="returnDate">Return Date </label>
+                    <div>
+                        <input type="date"
+                        id="returnDate"
+                        [(ngModel)]="returnDate"
+                        [class]="getCurrentClass()"
+                        placeholde="Marka id"
+                        />
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>  
+        
+    <div class="position-absolute top-50 end-50" style="width:540px;height:50px;">
+        <button type="button" routerLink="car" class="btn btn-danger">Rental</button>
+    </div>
+</div>

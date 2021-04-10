@@ -1,7 +1,7 @@
   
-<li  class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Kiralanan Araçlar
+<li  class="nav-item dropdown" *ngIf="authControl">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">      
+      Rented Vehicles
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li *ngFor="let cartItem of cartItems"><a

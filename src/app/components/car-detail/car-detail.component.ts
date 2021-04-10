@@ -64,11 +64,17 @@ export class CarDetailComponent implements OnInit {
   getUser(email:string){  
     this.authService.getUser(email).subscribe(response=>{
       this.user = response.data;
+      console.log(this.user)
     })
   }
 
   findexControl(){
-    if(this.car.findex > this.user.findex){
+    
+    if(this.authService.isAuthenticated()==false){
+      this.toastrService.error("Please login")
+      this.router.navigate(['login']) 
+    }
+    else if(this.car.findex > this.user.findex){
       this.toastrService.error("Findex puanı yetersiz")
     }
     else{
