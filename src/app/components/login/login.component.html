@@ -1,21 +1,20 @@
 <div  style="background-image: url('/assets/images/slider.jpg');width:1536px;height:665px;" class="p-5"> 
     <div style="float:left;
                 height:600px;
-                width:650px;
-                opacity: 0.5;">
+                width:650px;">
         <div style="width:300px;float:right;" class="pt-5 position-relative">
             <form [formGroup]="loginForm" >
-                <div class="position-absolute top-0 start-50 translate-middle-x m-3" ><h1></h1>Sign in</div>
-
-                <div class="form-floating mb-2">
-                    <input formControlName="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+                <div class="position-absolute top-0 start-50 translate-middle-x m-3" style="width:160px;"><h1>Sign in</h1></div>
+                <div class="pt-5">
+                    <div class="form-floating mb-2">
+                        <input formControlName="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
                 </div>
-                <div class="form-floating mb-2">
-                    <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-
 
                 <button class="w-100 btn btn-lg btn-primary" (click)="login()">Sign in</button>
                 <button class="w-100 btn btn-success mt-3" routerLink="/register" (click)="register()">Register</button>

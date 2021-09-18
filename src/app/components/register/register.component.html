@@ -1,29 +1,32 @@
-<body class="text-center">
-    <main class="form-register">
-        <form [formGroup]="registerForm" >
-            <h1 class="h3 mb-3 fw-normal">Register</h1>
-            <div class="form-floating mb-2">
-                <input formControlName="firstName"  type="text" class="form-control" id="floatingFirstName" placeholder="first name">
-                <label for="floatingFirstName">First Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input formControlName="lastName" type="text" class="form-control" id="floatingLastName" placeholder="last name">
-                <label for="floatingLastName">Last Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input formControlName="email"  type="email" class="form-control" id="floatingEmail" placeholder="email">
-                <label for="floatingEmail">Email address</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
+<div  style="background-image: url('/assets/images/slider.jpg');width:1536px;height:665px;" class="p-5"> 
+    <div style="float:left;
+                height:600px;
+                width:650px;">
+        <div style="width:300px;float:right;" class="pt-5 position-relative">
+            <form [formGroup]="registerForm" >
+                <div class="position-absolute top-0 start-50 translate-middle-x m-3" style="width:190px;"><h1>Register</h1></div>
+                <div class="pt-5">
+                    <div class="form-floating mb-2">
+                        <input formControlName="firstName"  type="text" class="form-control" id="floatingFirstName" placeholder="first name">
+                        <label for="floatingFirstName">First Name</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input formControlName="lastName" type="text" class="form-control" id="floatingLastName" placeholder="last name">
+                        <label for="floatingLastName">Last Name</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input formControlName="email"  type="email" class="form-control" id="floatingEmail" placeholder="email">
+                        <label for="floatingEmail">Email address</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+        
+                </div>
 
-            <div class="btn mb-3">
-                <button class="w-100 btn btn-lg btn-success" (click)="register()">Register</button>
-            </div>
-
-        </form>
-    </main>
-</body>
-
+                <button class="w-100 btn btn-lg btn-primary" (click)="register()">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

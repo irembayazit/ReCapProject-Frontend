@@ -15,7 +15,7 @@
           <input  type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
         </div>
 
-      <div class="card" style="border:2px solid black; width: 336px; display: inline-block; margin-left:10px; margin-bottom: 10px;"  *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
+      <div class="card bg-light rounded-2 shadow overflow-hidden" style="width:300px; display: inline-block; margin-left:30px; margin-bottom: 10px;"  *ngFor="let carDto of carDtos | filterCarBrandPipe:filterText">
         <img src="{{apiUrl + carDto.imagePath }}" class="card-img-top" style="height:220px;">
         <div class="card-body">
           <h5 class="card-title">{{ carDto.brandName }}</h5>
@@ -23,7 +23,7 @@
           <span class="card-text" style="color:rgb(26, 88, 54);font-size:30px;font-weight:550;">
              {{ carDto.dailyPrice }}
           </span>
-          <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}"  type="button" class="btn btn-primary">Detail</button></td>
+          <td><button (click)="DetailPage(carDto)"  routerLink="/car/car-detail/{{carDto.carId}}" style="width:220px;" type="button" class="btn btn-primary">Detail</button></td>
           <td><img (click)="UpdatePage(carDto)" class="m-3" routerLink="/car/car-update/{{carDto.carId}}" src="/assets/images/images.png" style="cursor:pointer; width:30px; height:30px"></td>
           
         </div>
